@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group View</title>
+</head>
+<body>
+{% for member in members %}
+    <p>First Name : {{ member.first_name }}</p>
+    <p>Last Name : {{ member.last_name }}</p>
+    <p>Semester  : {{ member.semester }}</p>
+    <p>Personal Page : {{ member.personal_page }}</p>
+{% endfor %}
+</body>
+</html>
