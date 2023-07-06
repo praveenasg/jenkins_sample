@@ -1,0 +1,12 @@
+{% extends 'carapp/base.html' %}
+{% block body_block %}
+    <body>
+    <p> Following are the Vehicles in Toyota with Cartype No {{ cartype_no }}: </p>
+    {% for vehicle in vehicles %}
+    <ul>
+        <li> {{ vehicle }}</li>
+    </ul>
+    {% endfor %}
+    <p><a href= {% url 'carapp:homepage' %} >Home</a></p>
+    </body>
+{% endblock %}
