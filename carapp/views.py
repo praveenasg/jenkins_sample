@@ -3,7 +3,7 @@ from .models import CarType, LabGroupMember, Vehicle
 from django.shortcuts import get_object_or_404, render
 from .forms import OrderVehicleForm, SearchVehicleForm
 
-
+#adding a line to check if poll scm is working 
 # Create your views here.
 def homepage(request):
     cartype_list = CarType.objects.all().order_by('id')
