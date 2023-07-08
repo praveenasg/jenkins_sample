@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('git clone') {
             steps {
-              git branch: '', changelog: false, poll: false, url: 'https://github.com/praveenasg/jenkins_sample.git'
+            checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/praveenasg/jenkins_sample.git']]])
             }
         }
 
