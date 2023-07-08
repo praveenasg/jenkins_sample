@@ -15,7 +15,7 @@ pipeline {
     stage('docker build') {
       steps{
         script {
-          sh 'docker build -t V${BUILD_NUMBER} .'
+           dockerImage = docker.build registry
         }
       }
     }
@@ -24,7 +24,7 @@ pipeline {
      steps{    
          script {
             docker.withRegistry( '', registryCredential ) {
-            sh 'docker push ${registry}:V${BUILD_NUMBER}'
+             dockerImage.push()
             }
         }
       }
