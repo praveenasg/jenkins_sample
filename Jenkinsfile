@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('git clone') {
             steps {
-              git branch: '', url: 'https://github.com/praveenasg/jenkins_sample.git'
+              git branch: '', changelog: false, poll: false, url: 'https://github.com/praveenasg/jenkins_sample.git'
             }
         }
 
