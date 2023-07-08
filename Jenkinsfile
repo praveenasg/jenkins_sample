@@ -15,7 +15,7 @@ pipeline {
     stage('docker build') {
       steps{
         script {
-          sh 'docker build -t ${registry}:V${BUILD_NUMBER}'
+          sh 'docker build -t V${BUILD_NUMBER} .'
         }
       }
     }
