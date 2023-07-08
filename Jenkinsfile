@@ -2,20 +2,20 @@ pipeline {
     agent any 
     environment {
         registry = "praveenasg/carapp_repo"
-        registryCredential = '3ac713df-c5fd-4eb9-ae82-96fe1815ebb5'
+        registryCredential = 'Docker'
         dockerImage = ''
     }
     stages {
         stage('git clone') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/praveen']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/praveenasg/jenkins_sample.git']]])       
+              git branch: '', url: 'https://github.com/praveenasg/jenkins_sample.git'
             }
         }
 
     stage('docker build') {
       steps{
         script {
-          dockerImage = docker.build registry
+          sh 'docker build -t ${registry}:V${BUILD_NUMBER}'
         }
       }
     }
@@ -24,7 +24,7 @@ pipeline {
      steps{    
          script {
             docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
+            sh 'docker push ${registry}:V${BUILD_NUMBER}'
             }
         }
       }
