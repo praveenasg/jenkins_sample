@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent docker 
     environment {
         registry = "praveenasg/carapp_repo"
         registryCredential = 'Docker'
